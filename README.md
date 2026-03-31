@@ -2,7 +2,7 @@
 
 A machine learning web application that predicts annual CTC (Cost to Company) for IT professionals in India based on job role, skills, experience, location, industry, and company type — calibrated to the **2025-26 India job market**.
 
-🚀 **Live App:** [Click here to try it](https://mgdev2023-india-salary-prediction.streamlit.app)
+🚀 **Live App:** [Click here to try it](https://indiasalaryprediction-xmbpz8ekgufvbyqdbhkdb3.streamlit.app/)
 
 ---
 
