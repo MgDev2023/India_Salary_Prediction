@@ -107,8 +107,18 @@ st.markdown("""
 
 
 def load_model():
-    if not os.path.exists(MODEL_PATH):
-        with st.spinner("Training model for the first time — please wait..."):
+    needs_train = not os.path.exists(MODEL_PATH)
+    if not needs_train:
+        try:
+            with open(MODEL_PATH, "rb") as f:
+                model = pickle.load(f)
+            with open(ENCODER_PATH, "rb") as f:
+                encoders = pickle.load(f)
+            return model, encoders
+        except Exception:
+            needs_train = True
+    if needs_train:
+        with st.spinner("Setting up model for this environment — please wait (~1 min)..."):
             subprocess.run([sys.executable, "train_model.py"], check=True)
     with open(MODEL_PATH, "rb") as f:
         model = pickle.load(f)
