@@ -1,0 +1,14 @@
+name: Keep App Alive
+
+on:
+  schedule:
+    - cron: "*/20 * * * *"   # runs every 20 minutes, 24/7
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Streamlit app
+        run: |
+          curl -s -o /dev/null -w "%{http_code}" \
+            https://indiasalaryprediction-xmbpz8ekgufvbyqdbhkdb3.streamlit.app/
